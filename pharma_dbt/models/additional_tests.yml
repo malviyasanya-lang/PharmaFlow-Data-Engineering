@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: fct_inventory_transactions
+    description: "Incrementally maintained inventory transaction fact table."
+    columns:
+      - name: transaction_id
+        data_tests:
+          - unique
+          - not_null
+      - name: quantity
+        data_tests:
+          - not_null
+
+  - name: mart_supplier_performance
+    description: "Supplier-level inbound volume and purchase value."
+    columns:
+      - name: supplier_id
+        data_tests:
+          - unique
+          - not_null

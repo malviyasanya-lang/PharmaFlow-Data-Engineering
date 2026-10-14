@@ -1,0 +1,11 @@
+.env
+.env.*
+.venv/
+**/profiles.yml
+**/target/
+**/dbt_packages/
+**/logs/
+__pycache__/
+*.pyc
+data/*.csv
+*.pbix
