@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "04849604625a459ea925",
+  "position": {
+    "x": 820,
+    "y": 105,
+    "z": 3,
+    "height": 125,
+    "width": 370,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_SUPPLIER_PERFORMANCE"
+                        }
+                      },
+                      "Property": "TOTAL_PURCHASE_VALUE"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_SUPPLIER_PERFORMANCE.TOTAL_PURCHASE_VALUE)",
+              "nativeQueryRef": "Sum of TOTAL_PURCHASE_VALUE"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

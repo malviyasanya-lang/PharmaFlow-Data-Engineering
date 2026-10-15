@@ -1,0 +1,78 @@
+table MART_SALES_SUMMARY
+	lineageTag: 9f598949-7759-4f84-9649-dc7f700c7759
+
+	column SALES_MONTH
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 82d86d0c-df6a-4225-961c-16519500f218
+		summarizeBy: none
+		sourceColumn: SALES_MONTH
+
+		variation Variation
+			isDefault
+			relationship: 9a02dc90-8898-4c32-b65b-6571aca7558c
+			defaultHierarchy: LocalDateTable_6ada332b-bc5c-418d-8ccf-0a3ab22fedfa.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column WAREHOUSE_CITY
+		dataType: string
+		lineageTag: df56a573-eb15-47dc-89ac-28ecbad12011
+		summarizeBy: none
+		sourceColumn: WAREHOUSE_CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORY
+		dataType: string
+		lineageTag: 26215ef1-3cb6-4d56-906d-d2444aff3677
+		summarizeBy: none
+		sourceColumn: CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_ORDERS
+		dataType: double
+		lineageTag: 1756634d-48aa-4612-a911-552a3aec6376
+		summarizeBy: sum
+		sourceColumn: TOTAL_ORDERS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNITS_SOLD
+		dataType: double
+		lineageTag: 5c0ab5b6-6e72-4c6c-8106-b3735219a73f
+		summarizeBy: sum
+		sourceColumn: UNITS_SOLD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_SALES_AMOUNT
+		dataType: double
+		lineageTag: a4366992-c611-49ea-a28b-543c13e1344c
+		summarizeBy: sum
+		sourceColumn: TOTAL_SALES_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition MART_SALES_SUMMARY = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("PGOXBRO-ZX73358.snowflakecomputing.com","PHARMA_WH",[Implementation="2.0"]),
+				    PHARMAFLOW_Database = Source{[Name="PHARMAFLOW",Kind="Database"]}[Data],
+				    GOLD_Schema = PHARMAFLOW_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    MART_SALES_SUMMARY_Table = GOLD_Schema{[Name="MART_SALES_SUMMARY",Kind="Table"]}[Data]
+				in
+				    MART_SALES_SUMMARY_Table
+
+	annotation PBI_ResultType = Table
+

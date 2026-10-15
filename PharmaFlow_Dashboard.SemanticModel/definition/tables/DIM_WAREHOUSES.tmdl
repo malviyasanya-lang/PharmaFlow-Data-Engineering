@@ -1,0 +1,50 @@
+table DIM_WAREHOUSES
+	lineageTag: e0332cc3-cc06-43fe-81e6-19a6412a61f3
+
+	column WAREHOUSE_ID
+		dataType: string
+		lineageTag: dfe9ba88-935e-4481-9897-ab2969895fc5
+		summarizeBy: none
+		sourceColumn: WAREHOUSE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column WAREHOUSE_NAME
+		dataType: string
+		lineageTag: 7abf6e53-8eb0-47af-b6ad-fc71687f76d3
+		summarizeBy: none
+		sourceColumn: WAREHOUSE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CITY
+		dataType: string
+		lineageTag: 2d49faa9-3d14-425e-a83b-d54d046212a7
+		summarizeBy: none
+		sourceColumn: CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAPACITY
+		dataType: double
+		lineageTag: 220b9f4e-4f39-4908-8336-a14381a409c4
+		summarizeBy: sum
+		sourceColumn: CAPACITY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_WAREHOUSES = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("PGOXBRO-ZX73358.snowflakecomputing.com","PHARMA_WH",[Implementation="2.0"]),
+				    PHARMAFLOW_Database = Source{[Name="PHARMAFLOW",Kind="Database"]}[Data],
+				    GOLD_Schema = PHARMAFLOW_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    DIM_WAREHOUSES_Table = GOLD_Schema{[Name="DIM_WAREHOUSES",Kind="Table"]}[Data]
+				in
+				    DIM_WAREHOUSES_Table
+
+	annotation PBI_ResultType = Table
+

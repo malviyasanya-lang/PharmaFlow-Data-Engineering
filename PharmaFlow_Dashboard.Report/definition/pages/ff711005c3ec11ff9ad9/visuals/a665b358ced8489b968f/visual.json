@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "a665b358ced8489b968f",
+  "position": {
+    "x": 973.44,
+    "y": 713.88,
+    "z": 10,
+    "height": 295.92,
+    "width": 879.36,
+    "tabOrder": 10
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MART_SUPPLIER_PERFORMANCE"
+                    }
+                  },
+                  "Property": "SUPPLIER_ID"
+                }
+              },
+              "queryRef": "MART_SUPPLIER_PERFORMANCE.SUPPLIER_ID",
+              "nativeQueryRef": "SUPPLIER_ID",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_SUPPLIER_PERFORMANCE"
+                        }
+                      },
+                      "Property": "TOTAL_PURCHASE_VALUE"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_SUPPLIER_PERFORMANCE.TOTAL_PURCHASE_VALUE)",
+              "nativeQueryRef": "Sum of TOTAL_PURCHASE_VALUE"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

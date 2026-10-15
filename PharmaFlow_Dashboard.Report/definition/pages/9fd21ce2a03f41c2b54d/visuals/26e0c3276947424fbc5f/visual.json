@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "26e0c3276947424fbc5f",
+  "position": {
+    "x": 973.44,
+    "y": 394.2,
+    "z": 8,
+    "height": 295.92,
+    "width": 879.36,
+    "tabOrder": 8
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MART_INVENTORY_HEALTH"
+                    }
+                  },
+                  "Property": "PRODUCT_ID"
+                }
+              },
+              "queryRef": "MART_INVENTORY_HEALTH.PRODUCT_ID",
+              "nativeQueryRef": "PRODUCT_ID",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_INVENTORY_HEALTH"
+                        }
+                      },
+                      "Property": "NET_STOCK_MOVEMENT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_INVENTORY_HEALTH.NET_STOCK_MOVEMENT)",
+              "nativeQueryRef": "Sum of NET_STOCK_MOVEMENT"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

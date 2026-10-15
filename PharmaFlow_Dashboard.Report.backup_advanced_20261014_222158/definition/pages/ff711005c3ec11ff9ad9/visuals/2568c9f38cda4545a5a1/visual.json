@@ -1,0 +1,99 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "2568c9f38cda4545a5a1",
+  "position": {
+    "x": 30,
+    "y": 455,
+    "z": 6,
+    "height": 205,
+    "width": 590,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MART_SUPPLIER_PERFORMANCE"
+                    }
+                  },
+                  "Property": "SUPPLIER_ID"
+                }
+              },
+              "queryRef": "MART_SUPPLIER_PERFORMANCE.SUPPLIER_ID",
+              "nativeQueryRef": "SUPPLIER_ID",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_SUPPLIER_PERFORMANCE"
+                        }
+                      },
+                      "Property": "TOTAL_PURCHASE_VALUE"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_SUPPLIER_PERFORMANCE.TOTAL_PURCHASE_VALUE)",
+              "nativeQueryRef": "Sum of TOTAL_PURCHASE_VALUE"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5b81ced3064bbe881de0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MART_SUPPLIER_PERFORMANCE"
+              }
+            },
+            "Property": "SUPPLIER_ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4d1f7600186844cf7ec6",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MART_SUPPLIER_PERFORMANCE"
+                  }
+                },
+                "Property": "TOTAL_PURCHASE_VALUE"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

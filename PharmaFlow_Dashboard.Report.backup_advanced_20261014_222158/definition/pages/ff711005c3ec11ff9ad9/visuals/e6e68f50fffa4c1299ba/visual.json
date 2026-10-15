@@ -1,0 +1,99 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "e6e68f50fffa4c1299ba",
+  "position": {
+    "x": 620,
+    "y": 455,
+    "z": 7,
+    "height": 205,
+    "width": 580,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MART_INVENTORY_HEALTH"
+                    }
+                  },
+                  "Property": "WAREHOUSE_ID"
+                }
+              },
+              "queryRef": "MART_INVENTORY_HEALTH.WAREHOUSE_ID",
+              "nativeQueryRef": "WAREHOUSE_ID",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_INVENTORY_HEALTH"
+                        }
+                      },
+                      "Property": "NET_STOCK_MOVEMENT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_INVENTORY_HEALTH.NET_STOCK_MOVEMENT)",
+              "nativeQueryRef": "Sum of NET_STOCK_MOVEMENT"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8ee58e044ae1d70578aa",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MART_INVENTORY_HEALTH"
+              }
+            },
+            "Property": "WAREHOUSE_ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "80562f3b217ec631d638",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MART_INVENTORY_HEALTH"
+                  }
+                },
+                "Property": "NET_STOCK_MOVEMENT"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

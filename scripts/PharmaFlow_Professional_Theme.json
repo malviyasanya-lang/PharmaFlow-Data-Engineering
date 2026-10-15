@@ -1,0 +1,16 @@
+{
+  "name": "PharmaFlow | Modern Healthcare Analytics",
+  "dataColors": ["#14B8A6", "#2563EB", "#F59E0B", "#8B5CF6", "#EF4444", "#0EA5E9", "#22C55E", "#64748B"],
+  "background": "#F3F6FB",
+  "foreground": "#172B4D",
+  "tableAccent": "#14B8A6",
+  "good": "#16A34A",
+  "neutral": "#F59E0B",
+  "bad": "#DC2626",
+  "textClasses": {
+    "title": {"fontFace": "Segoe UI Semibold", "fontSize": 14, "color": "#172B4D"},
+    "header": {"fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#172B4D"},
+    "label": {"fontFace": "Segoe UI", "fontSize": 10, "color": "#52627A"},
+    "callout": {"fontFace": "Segoe UI Semibold", "fontSize": 27, "color": "#172B4D"}
+  }
+}

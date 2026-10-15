@@ -1,0 +1,62 @@
+table DIM_PRODUCTS
+	lineageTag: 701215ea-d1ce-4d97-aebc-c95a4f7bca23
+
+	column PRODUCT_ID
+		dataType: double
+		lineageTag: e39e89d4-de91-4a08-b361-46ce3acc6d5a
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRODUCT_NAME
+		dataType: string
+		lineageTag: 9a8b629b-8964-4f9e-9f81-f51eeb6d419e
+		summarizeBy: none
+		sourceColumn: PRODUCT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORY
+		dataType: string
+		lineageTag: bcc51513-743a-4dae-9125-8a62535f8985
+		summarizeBy: none
+		sourceColumn: CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIT_PRICE
+		dataType: double
+		lineageTag: 060b9bbd-e080-42ab-ace3-0752ef1e9eae
+		summarizeBy: sum
+		sourceColumn: UNIT_PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REORDER_LEVEL
+		dataType: double
+		lineageTag: 51412626-276c-42de-9d71-22db721c48d8
+		summarizeBy: sum
+		sourceColumn: REORDER_LEVEL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DIM_PRODUCTS = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("PGOXBRO-ZX73358.snowflakecomputing.com","PHARMA_WH",[Implementation="2.0"]),
+				    PHARMAFLOW_Database = Source{[Name="PHARMAFLOW",Kind="Database"]}[Data],
+				    GOLD_Schema = PHARMAFLOW_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    DIM_PRODUCTS_Table = GOLD_Schema{[Name="DIM_PRODUCTS",Kind="Table"]}[Data]
+				in
+				    DIM_PRODUCTS_Table
+
+	annotation PBI_ResultType = Table
+

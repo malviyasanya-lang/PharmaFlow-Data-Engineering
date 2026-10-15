@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "1f18f2ca209c4a69ad4c",
+  "position": {
+    "x": 30,
+    "y": 10,
+    "z": 0,
+    "height": 70,
+    "width": 1170,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "PharmaFlow  |  Inventory Intelligence",
+                    "textStyle": {
+                      "fontFamily": "Arial",
+                      "fontSize": "27pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 228.58212475141534,
+            "y": -50
+          },
+          "nodeIndex": "DIM_PRODUCTS",
+          "nodeLineageTag": "701215ea-d1ce-4d97-aebc-c95a4f7bca23",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 342.89238245039462,
+            "y": 408.66110953441574
+          },
+          "nodeIndex": "DIM_WAREHOUSES",
+          "nodeLineageTag": "e0332cc3-cc06-43fe-81e6-19a6412a61f3",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 515.60845123628451,
+            "y": 55.598828891392145
+          },
+          "nodeIndex": "FCT_SALES",
+          "nodeLineageTag": "55fbd603-7e2f-4fe4-a0b6-af4ce9446147",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 202.76487513113352
+          },
+          "nodeIndex": "MART_INVENTORY_HEALTH",
+          "nodeLineageTag": "201e724e-aa4b-45cf-983e-10614287d7dc",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 749.60845123628451,
+            "y": 205.3305547672079
+          },
+          "nodeIndex": "MART_SALES_SUMMARY",
+          "nodeLineageTag": "9f598949-7759-4f84-9649-dc7f700c7759",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1033.6084512362845,
+            "y": 205.3305547672079
+          },
+          "nodeIndex": "MART_SUPPLIER_PERFORMANCE",
+          "nodeLineageTag": "97491c0c-f7af-401d-be84-3cd0c703dc7b",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

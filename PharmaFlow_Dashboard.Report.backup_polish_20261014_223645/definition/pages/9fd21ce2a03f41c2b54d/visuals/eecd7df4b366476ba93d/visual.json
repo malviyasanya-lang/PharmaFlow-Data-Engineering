@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "eecd7df4b366476ba93d",
+  "position": {
+    "x": 30,
+    "y": 265,
+    "z": 5,
+    "height": 190,
+    "width": 570,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MART_INVENTORY_HEALTH"
+                    }
+                  },
+                  "Property": "WAREHOUSE_ID"
+                }
+              },
+              "queryRef": "MART_INVENTORY_HEALTH.WAREHOUSE_ID",
+              "nativeQueryRef": "WAREHOUSE_ID",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_INVENTORY_HEALTH"
+                        }
+                      },
+                      "Property": "INBOUND_QUANTITY"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_INVENTORY_HEALTH.INBOUND_QUANTITY)",
+              "nativeQueryRef": "Sum of INBOUND_QUANTITY"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

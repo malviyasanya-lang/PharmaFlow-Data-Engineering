@@ -1,0 +1,26 @@
+relationship fa7a8077-8ada-4d51-933b-34555b38aa2f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FCT_SALES.ORDER_DATE
+	toColumn: LocalDateTable_600c2fed-0e3e-43e4-be55-008c56ac5626.Date
+
+relationship 9a02dc90-8898-4c32-b65b-6571aca7558c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: MART_SALES_SUMMARY.SALES_MONTH
+	toColumn: LocalDateTable_6ada332b-bc5c-418d-8ccf-0a3ab22fedfa.Date
+
+relationship AutoDetected_431c1701-4b52-4cb1-9928-de10604e48cd
+	fromColumn: FCT_SALES.PRODUCT_ID
+	toColumn: DIM_PRODUCTS.PRODUCT_ID
+
+relationship AutoDetected_6ee3652b-6214-4432-9d6c-4cc54eee7ee5
+	fromColumn: MART_INVENTORY_HEALTH.PRODUCT_ID
+	toColumn: DIM_PRODUCTS.PRODUCT_ID
+
+relationship AutoDetected_66ff4f9c-0137-48e6-8892-643388e8ebea
+	fromColumn: FCT_SALES.WAREHOUSE_ID
+	toColumn: DIM_WAREHOUSES.WAREHOUSE_ID
+
+relationship AutoDetected_edd6af72-0231-4b2b-9b73-53d8739990fe
+	fromColumn: MART_INVENTORY_HEALTH.WAREHOUSE_ID
+	toColumn: DIM_WAREHOUSES.WAREHOUSE_ID
+

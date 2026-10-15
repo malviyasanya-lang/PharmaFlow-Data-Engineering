@@ -1,0 +1,27 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["DIM_PRODUCTS","DIM_WAREHOUSES","FCT_SALES","MART_INVENTORY_HEALTH","MART_SALES_SUMMARY","MART_SUPPLIER_PERFORMANCE"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DIM_PRODUCTS
+ref table DIM_WAREHOUSES
+ref table FCT_SALES
+ref table DateTableTemplate_795d440d-3b1e-46cc-802e-c4679766aa0d
+ref table LocalDateTable_600c2fed-0e3e-43e4-be55-008c56ac5626
+ref table MART_INVENTORY_HEALTH
+ref table MART_SALES_SUMMARY
+ref table LocalDateTable_6ada332b-bc5c-418d-8ccf-0a3ab22fedfa
+ref table MART_SUPPLIER_PERFORMANCE
+
+ref cultureInfo en-US
+

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "0d06dd3d032744729e85",
+  "position": {
+    "x": 973.44,
+    "y": 713.88,
+    "z": 10,
+    "height": 295.92,
+    "width": 879.36,
+    "tabOrder": 10
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MART_INVENTORY_HEALTH"
+                    }
+                  },
+                  "Property": "WAREHOUSE_ID"
+                }
+              },
+              "queryRef": "MART_INVENTORY_HEALTH.WAREHOUSE_ID",
+              "nativeQueryRef": "WAREHOUSE_ID",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_INVENTORY_HEALTH"
+                        }
+                      },
+                      "Property": "EXPIRING_30D_TRANSACTIONS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_INVENTORY_HEALTH.EXPIRING_30D_TRANSACTIONS)",
+              "nativeQueryRef": "Sum of EXPIRING_30D_TRANSACTIONS"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

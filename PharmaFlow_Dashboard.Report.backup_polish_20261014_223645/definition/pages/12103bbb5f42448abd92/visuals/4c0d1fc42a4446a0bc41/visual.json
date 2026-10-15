@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "4c0d1fc42a4446a0bc41",
+  "position": {
+    "x": 425,
+    "y": 105,
+    "z": 2,
+    "height": 125,
+    "width": 370,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_SALES_SUMMARY"
+                        }
+                      },
+                      "Property": "TOTAL_ORDERS"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_SALES_SUMMARY.TOTAL_ORDERS)",
+              "nativeQueryRef": "Sum of TOTAL_ORDERS"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "509e22f68dca4d1eb214",
+  "position": {
+    "x": 620,
+    "y": 480,
+    "z": 7,
+    "height": 195,
+    "width": 590,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MART_SALES_SUMMARY"
+                    }
+                  },
+                  "Property": "WAREHOUSE_CITY"
+                }
+              },
+              "queryRef": "MART_SALES_SUMMARY.WAREHOUSE_CITY",
+              "nativeQueryRef": "WAREHOUSE_CITY",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_SALES_SUMMARY"
+                        }
+                      },
+                      "Property": "TOTAL_SALES_AMOUNT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_SALES_SUMMARY.TOTAL_SALES_AMOUNT)",
+              "nativeQueryRef": "Sum of TOTAL_SALES_AMOUNT"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

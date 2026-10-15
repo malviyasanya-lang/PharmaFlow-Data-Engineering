@@ -1,0 +1,122 @@
+table FCT_SALES
+	lineageTag: 55fbd603-7e2f-4fe4-a0b6-af4ce9446147
+
+	column ORDER_ID
+		dataType: double
+		lineageTag: e931fc80-098f-4c07-aa14-e8fb5ae1d5a0
+		summarizeBy: count
+		sourceColumn: ORDER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRODUCT_ID
+		dataType: double
+		lineageTag: f2afb350-7a47-4c8b-a95e-9ac4b440e0c9
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRODUCT_NAME
+		dataType: string
+		lineageTag: 203a782f-55fa-4f22-ae1e-cfb5004be254
+		summarizeBy: none
+		sourceColumn: PRODUCT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORY
+		dataType: string
+		lineageTag: 5927163b-c441-47f1-9378-cc62a50a8172
+		summarizeBy: none
+		sourceColumn: CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column WAREHOUSE_ID
+		dataType: string
+		lineageTag: 85a1ada8-a3b9-42e4-951e-f1ee4358c798
+		summarizeBy: none
+		sourceColumn: WAREHOUSE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column WAREHOUSE_CITY
+		dataType: string
+		lineageTag: a446de1d-debc-48de-9976-e8858d9f56f4
+		summarizeBy: none
+		sourceColumn: WAREHOUSE_CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUANTITY
+		dataType: double
+		lineageTag: 16578b01-21f7-4bda-9ac8-40da478eba8d
+		summarizeBy: sum
+		sourceColumn: QUANTITY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNIT_PRICE
+		dataType: double
+		lineageTag: b638ee5a-48f5-4a34-b664-4b331b7091fc
+		summarizeBy: sum
+		sourceColumn: UNIT_PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ORDER_AMOUNT
+		dataType: double
+		lineageTag: 01a901e1-83a6-4871-8364-20c94fd2369e
+		summarizeBy: sum
+		sourceColumn: ORDER_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ORDER_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5f36a324-1133-45b4-83d3-ae20942c55a2
+		summarizeBy: none
+		sourceColumn: ORDER_DATE
+
+		variation Variation
+			isDefault
+			relationship: fa7a8077-8ada-4d51-933b-34555b38aa2f
+			defaultHierarchy: LocalDateTable_600c2fed-0e3e-43e4-be55-008c56ac5626.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ORDER_STATUS
+		dataType: string
+		lineageTag: caf9ea1b-04eb-485f-88cf-a1697061b88f
+		summarizeBy: none
+		sourceColumn: ORDER_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FCT_SALES = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("PGOXBRO-ZX73358.snowflakecomputing.com","PHARMA_WH",[Implementation="2.0"]),
+				    PHARMAFLOW_Database = Source{[Name="PHARMAFLOW",Kind="Database"]}[Data],
+				    GOLD_Schema = PHARMAFLOW_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    FCT_SALES_Table = GOLD_Schema{[Name="FCT_SALES",Kind="Table"]}[Data]
+				in
+				    FCT_SALES_Table
+
+	annotation PBI_ResultType = Table
+

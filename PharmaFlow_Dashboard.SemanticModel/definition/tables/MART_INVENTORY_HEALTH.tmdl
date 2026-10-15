@@ -1,0 +1,94 @@
+table MART_INVENTORY_HEALTH
+	lineageTag: 201e724e-aa4b-45cf-983e-10614287d7dc
+
+	column PRODUCT_ID
+		dataType: double
+		lineageTag: 258d310f-39d5-4b96-971a-79314d73e9c4
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WAREHOUSE_ID
+		dataType: string
+		lineageTag: e8ea50eb-b3be-40ad-854a-1ae312525291
+		summarizeBy: none
+		sourceColumn: WAREHOUSE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_TRANSACTIONS
+		dataType: double
+		lineageTag: a8e15b4f-0d65-4705-b6cb-358af5182b3a
+		summarizeBy: sum
+		sourceColumn: TOTAL_TRANSACTIONS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column INBOUND_QUANTITY
+		dataType: double
+		lineageTag: 96a9536b-3ad3-4bfc-b08f-bf6736095870
+		summarizeBy: sum
+		sourceColumn: INBOUND_QUANTITY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OUTBOUND_QUANTITY
+		dataType: double
+		lineageTag: 89147486-d539-494d-ada4-6c5ca99c877e
+		summarizeBy: sum
+		sourceColumn: OUTBOUND_QUANTITY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NET_STOCK_MOVEMENT
+		dataType: double
+		lineageTag: 61b985bd-dfab-4f95-b172-427d8e6f06c8
+		summarizeBy: sum
+		sourceColumn: NET_STOCK_MOVEMENT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_TRANSACTION_VALUE
+		dataType: double
+		lineageTag: 4393376f-f75f-47fa-92aa-822c0365a765
+		summarizeBy: sum
+		sourceColumn: TOTAL_TRANSACTION_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EXPIRING_30D_TRANSACTIONS
+		dataType: double
+		lineageTag: 5b327b1b-edbf-4f17-80a5-1255ba31da50
+		summarizeBy: sum
+		sourceColumn: EXPIRING_30D_TRANSACTIONS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition MART_INVENTORY_HEALTH = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("PGOXBRO-ZX73358.snowflakecomputing.com","PHARMA_WH",[Implementation="2.0"]),
+				    PHARMAFLOW_Database = Source{[Name="PHARMAFLOW",Kind="Database"]}[Data],
+				    GOLD_Schema = PHARMAFLOW_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    MART_INVENTORY_HEALTH_Table = GOLD_Schema{[Name="MART_INVENTORY_HEALTH",Kind="Table"]}[Data]
+				in
+				    MART_INVENTORY_HEALTH_Table
+
+	annotation PBI_ResultType = Table
+

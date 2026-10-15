@@ -1,0 +1,74 @@
+table MART_SUPPLIER_PERFORMANCE
+	lineageTag: 97491c0c-f7af-401d-be84-3cd0c703dc7b
+
+	column SUPPLIER_ID
+		dataType: string
+		lineageTag: ab840557-07b8-4089-a16b-ed2fc427e4df
+		summarizeBy: none
+		sourceColumn: SUPPLIER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCTS_SUPPLIED
+		dataType: double
+		lineageTag: 243bed71-33c3-48ca-8f67-55e9d35f9ba3
+		summarizeBy: sum
+		sourceColumn: PRODUCTS_SUPPLIED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column INBOUND_TRANSACTIONS
+		dataType: double
+		lineageTag: e1d80261-b6c8-4ad5-9441-4920b28e6005
+		summarizeBy: sum
+		sourceColumn: INBOUND_TRANSACTIONS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_UNITS_RECEIVED
+		dataType: double
+		lineageTag: 14df75c1-d582-4f81-992a-b8d18f3ae1d4
+		summarizeBy: sum
+		sourceColumn: TOTAL_UNITS_RECEIVED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_PURCHASE_VALUE
+		dataType: double
+		lineageTag: a6a6e151-3fa2-4578-96d4-428fe11e7c59
+		summarizeBy: sum
+		sourceColumn: TOTAL_PURCHASE_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AVERAGE_UNIT_PRICE
+		dataType: double
+		lineageTag: ae5ced9e-d5c8-4603-9c40-1f2df9005e42
+		summarizeBy: sum
+		sourceColumn: AVERAGE_UNIT_PRICE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition MART_SUPPLIER_PERFORMANCE = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases("PGOXBRO-ZX73358.snowflakecomputing.com","PHARMA_WH",[Implementation="2.0"]),
+				    PHARMAFLOW_Database = Source{[Name="PHARMAFLOW",Kind="Database"]}[Data],
+				    GOLD_Schema = PHARMAFLOW_Database{[Name="GOLD",Kind="Schema"]}[Data],
+				    MART_SUPPLIER_PERFORMANCE_Table = GOLD_Schema{[Name="MART_SUPPLIER_PERFORMANCE",Kind="Table"]}[Data]
+				in
+				    MART_SUPPLIER_PERFORMANCE_Table
+
+	annotation PBI_ResultType = Table
+

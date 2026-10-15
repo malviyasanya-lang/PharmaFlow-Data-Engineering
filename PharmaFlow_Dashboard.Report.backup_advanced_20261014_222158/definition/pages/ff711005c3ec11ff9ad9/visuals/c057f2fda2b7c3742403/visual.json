@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "c057f2fda2b7c3742403",
+  "position": {
+    "x": 620,
+    "y": 265,
+    "z": 5,
+    "height": 190,
+    "width": 580,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MART_SALES_SUMMARY"
+                    }
+                  },
+                  "Property": "CATEGORY"
+                }
+              },
+              "queryRef": "MART_SALES_SUMMARY.CATEGORY",
+              "nativeQueryRef": "CATEGORY",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_SALES_SUMMARY"
+                        }
+                      },
+                      "Property": "TOTAL_SALES_AMOUNT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_SALES_SUMMARY.TOTAL_SALES_AMOUNT)",
+              "nativeQueryRef": "Sum of TOTAL_SALES_AMOUNT"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "MART_SALES_SUMMARY"
+                      }
+                    },
+                    "Property": "TOTAL_SALES_AMOUNT"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "738f9a14299ffe8c331c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MART_SALES_SUMMARY"
+              }
+            },
+            "Property": "CATEGORY"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "db6ab7a73c63cc57609c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MART_SALES_SUMMARY"
+                  }
+                },
+                "Property": "TOTAL_SALES_AMOUNT"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

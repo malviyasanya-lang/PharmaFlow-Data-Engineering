@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "c1a2e3c024c846dcbc91",
+  "position": {
+    "x": 30,
+    "y": 265,
+    "z": 4,
+    "height": 190,
+    "width": 590,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MART_SALES_SUMMARY"
+                    }
+                  },
+                  "Property": "SALES_MONTH"
+                }
+              },
+              "queryRef": "MART_SALES_SUMMARY.SALES_MONTH",
+              "nativeQueryRef": "SALES_MONTH",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "MART_SALES_SUMMARY"
+                        }
+                      },
+                      "Property": "TOTAL_SALES_AMOUNT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(MART_SALES_SUMMARY.TOTAL_SALES_AMOUNT)",
+              "nativeQueryRef": "Sum of TOTAL_SALES_AMOUNT"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
